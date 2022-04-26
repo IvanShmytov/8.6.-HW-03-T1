@@ -24,6 +24,7 @@ class MainClass
                 DirectoryInfo[] folderNames = dirInfo.GetDirectories();
                 foreach (var item in folderNames)
                 {
+                    DirCleaner(item.FullName);
                     if (item.LastAccessTime.CompareTo(DateTime.Now - TimeSpan.FromMinutes(30)) < 0)
                     {
                         item.Delete(true);
